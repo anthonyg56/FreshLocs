@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  h1 {
+    @apply text-[30px] md:text-[45px] lg:text-[60px] xl:text-[90px] font-semibold;
+  }
+
+  h2 {
+    @apply font-semibold text-[30px];
+  }
+
+  h3 {
+    @apply text-[18px] 2k:text-[23px] font-semibold tracking-wide;
+  }
+}
+
+@layer components {
+  .button-standard {
+    @apply rounded border-4 border-solid bg-none px-4 py-3 font-semibold text-base md:text-xl;
+  }
+
+  .heading-2 {
+    @apply test-3xl tracking-wide;
+  }
+
+  .red-btn {
+    @apply bg-primary-red py-2 px-4 rounded text-white;
+  }
+
+  .sect {
+    @apply pt-[100px] md:pt-[85px] lg:pt-[90px] px-7 lg:px-7 xl:px-14 flex flex-col 2k:justify-center;
+  }
+}
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
