@@ -9,8 +9,8 @@ interface Props {
   index: Tiles;
   expanded: Tiles | null;
   screenSize: {
-    width: number;
-    height: number;
+    width: number | null;
+    height: number | null;
   };
   isVisibile: (tile: Tiles) => boolean;
   setExpanded: (tile: Tiles | null) => void;

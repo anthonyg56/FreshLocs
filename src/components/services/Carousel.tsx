@@ -29,7 +29,7 @@ export default function Carousel() {
   }, [expandedTile, visibleTiles])
 
   const expandTile = (tile: Tiles | null) => {
-    screenSize.width <= 768
+    screenSize.width && screenSize.width <= 768
       ?
     triggerHandle(false, tile)
       :
