@@ -30,11 +30,11 @@ export default function Nav(props: Props) {
       </div>
 
       <div id="menu" className='ml-auto gap-x-5 hidden md:flex'>
-        <h3 data-menuanchor="#home" className='font-normal my-auto'><a href="#home" className='relative'>HOME<ActiveMark active={active} section={Sections.Home} /></a></h3>
-        <h3 data-menuanchor="#about" className='font-normal my-auto'><a href="#about" className='relative'>ABOUT<ActiveMark active={active} section={Sections.About} /></a></h3>
-        <h3 data-menuanchor="#services" className='font-normal my-auto'><a href="#services" className='relative'>SERVICES<ActiveMark active={active} section={Sections.Services} /></a></h3>
+        <h3 data-menuanchor="#home" className='font-normal my-auto'><a href="#home" className='relative tracking-wide'>Home<ActiveMark active={active} section={Sections.Home} /></a></h3>
+        <h3 data-menuanchor="#about" className='font-normal my-auto'><a href="#about" className='relative tracking-wide'>About<ActiveMark active={active} section={Sections.About} /></a></h3>
+        <h3 data-menuanchor="#services" className='font-normal my-auto'><a href="#services" className='relative tracking-wide'>Services<ActiveMark active={active} section={Sections.Services} /></a></h3>
         {/* <h3 href="/shop">Shop</h3> */}
-        <h3 className='font-normal red-btn bg-red'>CONTACT</h3>
+        <h3 className='font-normal red-btn bg-red tracking-wide'>Contact</h3>
       </div>
     </div>
   )
