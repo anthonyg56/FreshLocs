@@ -3,35 +3,22 @@
 import { useState, useEffect } from 'react';
 
 /* Checks if were in the server or browser */
-const isBrowser = () => typeof window !== 'undefined';
+const getSize = () => (typeof window !== 'undefined' ? { width: window.innerWidth, height: window.innerHeight } : undefined);
 
 const useScreenSize = () => {
-  const [screenSize, setScreenSize] = useState<{ width: number | null; height: number | null }>({
-    width: null,
-    height: null,
-  });
+  const [screenSize, setScreenSize] = useState(getSize());
 
   useEffect(() => {
-    if (isBrowser()) {
-      const handleResize = () => {
-        setScreenSize({
-          width: window.innerWidth,
-          height: window.innerHeight,
-        });
-      };
+    const handleResize = () => {
+      setScreenSize(getSize());
+    };
 
-      window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', handleResize);
 
-      setScreenSize({
-        width: window.innerWidth,
-        height: window.innerHeight
-      })
-
-          // Clean up the event listener when the component unmounts
-      return () => {
-        window.removeEventListener('resize', handleResize);
-      };
-    }
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   return screenSize;

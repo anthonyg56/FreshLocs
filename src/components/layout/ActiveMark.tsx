@@ -2,7 +2,7 @@ import React from 'react'
 import { Sections } from './nav'
 
 interface Props {
-  active: Sections | null;
+  active: Sections | undefined;
   section: Sections;
 }
 
@@ -12,6 +12,6 @@ export default function ActiveMark(props: Props) {
   if (active !== section) return (<span></span>)
 
   return (
-    <span className='w-full h-1 bg-primary-red block absolute bottom-0 translate-y-[7px]'></span>
+    <span className='w-full h-[3px] bg-fresh-red block absolute bottom-0'></span>
   )
 }

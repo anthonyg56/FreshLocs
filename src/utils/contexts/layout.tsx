@@ -6,48 +6,43 @@ import Nav, { Sections } from "@/components/layout/nav";
 import { Tiles } from "@/components/services/Carousel";
 import DragHandle from "@/components/layout/DragHandle";
 import NavDots from "@/components/layout/NavDots";
+import { useRouter } from "next/navigation";
 
 export type TLayoutContext = {
-  footer: FooterComponent | null;
-  triggerHandle: (nav?: Boolean, tile?: Tiles | null) => void;
+  footer: FooterComponent | undefined;
+  triggerHandle: (nav?: Boolean, tile?: Tiles | undefined) => void;
   setNav: (section: Sections) => void;
-  setFooter: (comp: FooterComponent | null) => void;
-  handleState: IHandleState;
+  setFooter: (comp: FooterComponent | undefined) => void;
+  handleOpen: boolean;
   disableScrolling: boolean;
-  setScrolling: (value: boolean) => void
-}
-
-interface IHandleState {
-  isOpen: Boolean,
-  tile: Tiles | null,
-  nav: Boolean,
+  setScrolling: (value: boolean) => void;
+  servicePage: Tiles | undefined;
+  setPage: React.Dispatch<React.SetStateAction<Tiles | undefined>>;
 }
 
 export const LayoutContext = createContext<Partial<TLayoutContext>>({})
 
 export const LayoutProvider = ({ children }: {children: React.ReactNode}) => {
-  const [footer, setFooter] = useState<FooterComponent | null>(null)
-  const [activeNav, setNav] = useState<Sections | null>(null)
+  const [footer, setFooter] = useState<FooterComponent |undefined>(undefined)
+  const [activeNav, setNav] = useState<Sections | undefined>(undefined)
   const [disableScrolling, setScrolling] = useState(false)
-  const [handleState, setHandle] = useState<IHandleState>({
-    isOpen: false,
-    tile: null,
-    nav: false,
-  })
+  const [handleOpen, setHandle] = useState(false)
+  const [servicePage, setPage] = useState<Tiles | undefined>(undefined)
+
+  const router = useRouter()
 
   useEffect(() => {
 
-  }, [footer, activeNav, handleState, disableScrolling])
+  }, [footer, activeNav, handleOpen, disableScrolling])
 
-  const triggerHandle = (nav?: Boolean, tile?: Tiles | null) => {
-    // console.log(`isOpen: ${handleState.isOpen}`)
-    // console.log(`Scrolling: ${disableScrolling}`)
-    setHandle ({
-      isOpen: !handleState.isOpen,
-      nav: nav ? nav : false,
-      tile: tile ? tile : null
-    })
-    setScrolling(!handleState.isOpen ? true : false)
+  const triggerHandle = (nav?: Boolean, tile?: Tiles | undefined) => {
+    setHandle (!handleOpen)
+    setScrolling(!handleOpen ? true : false)
+  }
+
+  const handlePageChange = (page: Tiles | undefined) => {
+    router.push("#services/1")
+    setPage(page)
   }
 
   return (
@@ -57,9 +52,11 @@ export const LayoutProvider = ({ children }: {children: React.ReactNode}) => {
         setFooter,
         setNav,
         triggerHandle,
-        handleState,
+        handleOpen,
         disableScrolling,
-        setScrolling
+        setScrolling,
+        servicePage,
+        setPage,
       }}
     >
       <Nav active={activeNav} trigger={() => triggerHandle(true)}/>
@@ -69,9 +66,7 @@ export const LayoutProvider = ({ children }: {children: React.ReactNode}) => {
       <DragHandle
         section={activeNav}
         close={() => triggerHandle()}
-        isOpen={handleState.isOpen}
-        nav={handleState.nav}
-        tile={handleState.tile}
+        isOpen={handleOpen}
       />
     </LayoutContext.Provider>
   )

@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebook, faInstagram, faSquareFacebook, faSquareInstagram, faTiktok } from '@fortawesome/free-brands-svg-icons'
 
 interface Props {
-  active: Sections | null;
+  active: Sections | undefined;
 }
 
 export default function MobileNav(props: Props) {
@@ -13,7 +13,7 @@ export default function MobileNav(props: Props) {
 
   return (
     <div>
-      <div id="menu" className='flex flex-col items-start items-center'>
+      <div id="menu" className='flex flex-col items-start'>
         <h3 data-menuanchor="#home" className='pb-1 inline-block'><a href="#home">HOME<ActiveMark active={active} section={Sections.Home} /></a></h3>
         <h3 data-menuanchor="#about" className='pb-1 inline-block'><a href="#about">ABOUT<ActiveMark active={active} section={Sections.About} /></a></h3>
         <h3 data-menuanchor="#services" className='pb-1 inline-block'><a href="#services">SERVICES<ActiveMark active={active} section={Sections.Services} /></a></h3>

@@ -7,10 +7,11 @@ export enum Sections {
   Home,
   About,
   Services,
+  Contact,
 }
   
 interface Props {
-  active: Sections | null;
+  active: Sections | undefined;
   trigger: (nav: true) => void; // For mobile
 }
 
@@ -18,10 +19,10 @@ export default function Nav(props: Props) {
   const { active, trigger } = props
 
   return (
-    <div className='fixed z-50 w-full flex pt-7 px-7 lg:py-7 xl:px-14'>
+    <div className='fixed z-50 w-full flex pt-5 px-7 lg:pt-7 xl:px-14'>
       {/* Website Logo */}
       <div className='my-auto'>
-        <h3><a href="#home"><span className='text-primary-red'>FRESH</span> LOCS</a></h3>
+        <a href="#home"><h4 className=' tracking-[0.095em] text-white'><span className='text-fresh-red'>FRESH</span> LOCS</h4></a>
       </div>
 
       {/* Nav Menu */}
@@ -29,12 +30,12 @@ export default function Nav(props: Props) {
         <FontAwesomeIcon icon={faBars} style={{color: "#ffffff",}} onClick={() => trigger(true)} width={32} height={32} className='!h-full w-full hover:cursor-pointer'/>
       </div>
 
-      <div id="menu" className='ml-auto gap-x-5 hidden md:flex'>
-        <h3 data-menuanchor="#home" className='font-normal my-auto'><a href="#home" className='relative tracking-wide'>Home<ActiveMark active={active} section={Sections.Home} /></a></h3>
-        <h3 data-menuanchor="#about" className='font-normal my-auto'><a href="#about" className='relative tracking-wide'>About<ActiveMark active={active} section={Sections.About} /></a></h3>
-        <h3 data-menuanchor="#services" className='font-normal my-auto'><a href="#services" className='relative tracking-wide'>Services<ActiveMark active={active} section={Sections.Services} /></a></h3>
-        {/* <h3 href="/shop">Shop</h3> */}
-        <h3 className='font-normal red-btn bg-red tracking-wide'>Contact</h3>
+      <div id="menu" className='ml-auto gap-x-5 hidden md:flex '>
+        <a href="#home" className='relative tracking-wide'><h4 data-menuanchor="#home" className='my-auto tracking-[0.095em] text-white'>Home<ActiveMark active={active} section={Sections.Home} /></h4></a>
+        <a href="#about" className='relative tracking-wide'><h4 data-menuanchor="#about" className='my-auto tracking-[0.095em] text-white'>About<ActiveMark active={active} section={Sections.About} /></h4></a>
+        <a href="#services" className='relative tracking-wide'><h4 data-menuanchor="#services" className='my-auto tracking-[0.095em] text-white'>Services<ActiveMark active={active} section={Sections.Services} /></h4></a>
+        {/* <h4 href="/shop">Shop</h4> */}
+        <a href="#contact"><h4 className='red-btn !py-[2px] tracking-[0.095em]'>Contact</h4></a>
       </div>
     </div>
   )

@@ -5,7 +5,7 @@ import { Sections } from './nav'
 import { faCircle, faCircleDot, } from '@fortawesome/free-regular-svg-icons';
 
 interface Props {
-  active: Sections | null;
+  active: Sections | undefined;
 }
 
 export default function NavDots(props: Props) {

@@ -4,6 +4,8 @@ import ServiceOption from './ServiceOption';
 
 interface Props {
   data: IServiceOption[];
+  serviceDetails: string;
+  title: string;
 }
 
 /**
@@ -16,22 +18,25 @@ interface Props {
  * @returns 
  */
 export default function ServiceOptionList(props: Props) {
-  const { data } = props
+  const { data, serviceDetails, title } = props
 
   const list = data.map((item, index) => <ServiceOption data={item} key={index} />)
 
   return (
-    <div className='h-[750px] w-full bg-white text-black px-10 pt-7 overflow-hidden'>
-      <div className='inline-block'>
-        <h2 className='inline-block'>Service Options</h2>
-        <span className='w-full h-[10px] bg-primary-red block'></span>
+    <div className='w-full px-7 pt-[35px] xl:px-14 lg:pt-24 overflow-y-scroll pb-14' id="serivce-page">
+      <div className='text-center'>
+        <div className='inline-block'>
+          <h1 className='inline-block'>{title}</h1>
+          <span className='w-full h-[3px] bg-primary-red block -translate-y-4'></span>
+        </div>
       </div>
 
-      <div className='h-full overflow-y-auto'>
+      <div className='pt-2 text-left pb-10'>
+        <p className='leading-relaxed'>{serviceDetails}</p>
+      </div>
+
+      <div className='h-auto overflow-y-auto'>
         {list}
-        <br/>
-        <br/>
-        <br/>
       </div>
     </div>
   )

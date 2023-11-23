@@ -19,7 +19,7 @@ export default function Carousel() {
   const { triggerHandle } = useContext(LayoutContext) as TLayoutContext
 
   /* Tracks what tile is active */
-  const [expandedTile, setExpanded] = useState<Tiles | null>(null)
+  const [expandedTile, setExpanded] = useState<Tiles | undefined>(undefined)
 
   /* numbers in the array indicate the index of the tiles that are visible, and since only 3 are visible at a time; initially set the first 3 as visible */
   const [visibleTiles, setVisible] = useState<Tiles[]>([0, 1, 2])
@@ -28,11 +28,8 @@ export default function Carousel() {
 
   }, [expandedTile, visibleTiles])
 
-  const expandTile = (tile: Tiles | null) => {
-    screenSize.width && screenSize.width <= 768
-      ?
+  const expandTile = (tile: Tiles | undefined) => {
     triggerHandle(false, tile)
-      :
     setExpanded(tile)
   }
 
@@ -40,7 +37,7 @@ export default function Carousel() {
 
   const shiftRight = () => {
     /* Check if there is an active index present, if so shift it first */
-    if (expandedTile !== null && expandedTile < services.length - 1) {
+    if (expandedTile !== undefined && expandedTile < services.length - 1) {
       shiftActiveTileRight(expandedTile)
       return
     }
@@ -70,7 +67,7 @@ export default function Carousel() {
 
   const shiftLeft = () => {
     /* Check if there is an active index present, if so shift it first */
-    if (expandedTile !== null && expandedTile > 0) {
+    if (expandedTile !== undefined && expandedTile > 0) {
       shiftActiveTileLeft(expandedTile)
       return
     }
@@ -98,33 +95,33 @@ export default function Carousel() {
   }
 
   const gridStyle = () => {
-    if (expandedTile === null) {
-      return ('grid-cols-[1fr_1fr_1fr]')
+    if (expandedTile === undefined) {
+      return ('lg:grid-cols-[1fr_1fr_1fr]')
     } else if (expandedTile === visibleTiles[0]) {
-      return ('grid-cols-[2fr_0.15fr_0.15fr]')
+      return ('lg:grid-cols-[2fr_0.15fr_0.15fr]')
     } else if (expandedTile === visibleTiles[1]) {
-      return ('grid-cols-[0.15fr_2fr_0.15fr]')
+      return ('lg:grid-cols-[0.15fr_2fr_0.15fr]')
     } else if (expandedTile === visibleTiles[2]) {
-      return ('grid-cols-[0.15fr_0.15fr_2fr]')
+      return ('lg:grid-cols-[0.15fr_0.15fr_2fr]')
     }
   }
 
   return (
     <div>
-      <div className={`grid ${gridStyle()} gap-x-[50px]`}>
+      <div className={`md:grid md:grid-cols-[1fr_1fr] ${gridStyle()} md:gap-x-[50px] lg:gap-y-[0px]`}>
         {services.map((item, index) => <ServiceTile
           expanded={expandedTile}
           data={item}
           isVisibile={(tile: Tiles) => isVisible(tile)}
           index={index}
-          setExpanded={(tile: Tiles | null) => expandTile(tile)}
+          setExpanded={(tile: Tiles | undefined) => expandTile(tile)}
           key={index}
           screenSize={screenSize}
         />)}
       </div>
 
 
-      <div>
+      <div className='hidden'>
         <div>
           {visibleTiles[0] !== 0 && <p onClick={(e) => shiftLeft()}>Go Left</p>}
         </div>

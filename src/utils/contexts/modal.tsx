@@ -19,16 +19,16 @@ export const ModalContext = createContext<Partial<TModalContext>>({})
  */
 export const ModalProvider = ({ children }: { children: React.ReactNode }) => {
   let [modalOpen, setModal] = useState(false);
-  let [component, setComponent] = useState<JSX.Element | null>(null);
+  let [component, setComponent] = useState<JSX.Element | undefined>(undefined);
   let [className, setClassName] = useState('');
   let [scroll, setScroll] = useState(false);
 
-  let containerRef = useRef<Element | null>(null)
+  let containerRef = useRef<Element | undefined>(undefined)
 
   let handleModal = (newComponent: any, isOpen: boolean, className?: string, scroll?: boolean) => {
     setModal(isOpen);
-    className ? setClassName(className) : null
-    scroll ? setScroll(true) : null
+    className ? setClassName(className) : undefined
+    scroll ? setScroll(true) : undefined
 
     if (newComponent) {
       setComponent(newComponent);

@@ -6,8 +6,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { ModalContext, TModalContext } from '@/utils/contexts/modal';
 
-
-
 interface Props {
   className?: string;
   scroll?: boolean;
@@ -26,7 +24,7 @@ const Modal = (props: Props) => {
   /* Close the modal */
   const closeModal = (e: any) => {
     e.preventDefault();
-    handleModal(null, false, "", false);
+    handleModal(undefined, false, "", false);
   };
 
   /* JSX for the modal */
@@ -56,7 +54,7 @@ const Modal = (props: Props) => {
   if (modal && containerRef.current) {
     return createPortal(<ModalHTML />, containerRef.current);
   } else {
-    return null;
+    return undefined;
   }
 }
 

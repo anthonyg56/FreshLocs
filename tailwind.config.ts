@@ -16,11 +16,13 @@ const config: Config = {
         "about-bg": "url('/about-bg.jpg')"
       },
       colors: {
-        "primary-red": "#FF0205",
-        "primary-gold": "#CDC28A",
-      }
-      ,screens: {
-        "2k": "1440px"
+        "fresh-red": "#FF0205",
+        "fresh-black": "#0B0B0B",
+        "fresh-grey": "#7D7D7D"
+      },
+      screens: {
+        "FHD": "1920px",
+        "2k": "2560px"
       }
     },
   },

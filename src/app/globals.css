@@ -4,15 +4,31 @@
 
 @layer base {
   h1 {
-    @apply text-[30px] md:text-[45px] lg:text-[60px] xl:text-[90px] font-semibold;
+    @apply text-[35px] md:text-[45px] lg:text-[70px] font-bold tracking-[0.095em];
   }
 
   h2 {
-    @apply font-semibold text-[30px];
+    @apply font-semibold text-[24px] lg:text-[32px] tracking-[0.095em];
   }
 
   h3 {
-    @apply text-[18px] 2k:text-[23px] font-semibold tracking-wide;
+    @apply text-[18px] lg:text-[20px] font-semibold tracking-[0.095em];
+  }
+
+  h4 {
+    @apply lg:text-[16px] font-medium text-fresh-grey tracking-[0.095em];
+  }
+
+  p {
+    @apply text-[14px] font-normal;
+  }
+
+  input, textarea {
+    @apply px-3 py-2 rounded-[5px] text-[20px] text-black;
+  }
+
+  label {
+    @apply text-[20px] font-semibold tracking-[0.095em] pb-1;
   }
 }
 
@@ -21,16 +37,12 @@
     @apply rounded border-4 border-solid bg-none px-4 py-3 font-semibold text-base md:text-xl;
   }
 
-  .heading-2 {
-    @apply test-3xl tracking-wide;
-  }
-
   .red-btn {
-    @apply bg-primary-red py-2 px-4 rounded text-white;
+    @apply bg-fresh-red py-2 px-4 rounded text-white;
   }
 
   .sect {
-    @apply pt-[100px] md:pt-[85px] lg:pt-[90px] px-7 lg:px-7 xl:px-14 flex flex-col 2k:justify-center;
+    @apply pt-[70px] px-7 flex flex-col md:pt-[80px] md:pb-[60px] lg:pt-[0px] lg:px-7 lg:h-screen lg:justify-center xl:px-14 xl:pt-7;
   }
 }
 

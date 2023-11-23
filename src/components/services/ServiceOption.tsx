@@ -18,19 +18,19 @@ interface Props {
 export default function ServiceOption(props: Props) {
   const { data } = props
 
-  const points = data.costPoints !== null ? ` or ${data.costPoints}pts` : null
+  const points = data.costPoints !== undefined ? ` or ${data.costPoints}pts` : undefined
 
-  const earnedPoints = data.pointsEarned !== null ? `, Earn ${data.pointsEarned}pts` : null
+  const earnedPoints = data.pointsEarned !== undefined ? `, Earn ${data.pointsEarned}pts` : undefined
 
   return (
-    <div className='flex py-5'>
-      <div>
-        <h4 className='text-[20px] font-semibold'>{data.title}</h4>
-        <p>${data.costFiat}{points}{earnedPoints}</p>
+    <div className='flex py-3 flex-row w-full bg-fresh-black rounded-[5px] px-5 my-6 hover:cursor-pointer'>
+      <div className='text-left max-w-[244px] md:max-w-[270px] xl:max-w-none'>
+        <h3 className=''>{data.title}</h3>
+        <h4>${data.costFiat}{points}{earnedPoints}</h4>
       </div>
-      <div className='ml-auto'>
+      <div className='ml-auto mt-3'>
         <a href={data.link}>
-          <button className='red-btn'>Book Now</button>
+          <h3 className='max-h-[42px] xl:max-h-none'>Book Now</h3>
         </a>
       </div>
     </div>

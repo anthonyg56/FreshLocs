@@ -1,19 +1,12 @@
 "use client"
 import { IService } from '@/utils/data/services'
-import React, { useState } from 'react'
-import ServiceOptionList from './ServiceOptionList';
+import React, { useContext } from 'react'
 import { Tiles } from './Carousel';
+import { LayoutContext, TLayoutContext } from '@/utils/contexts/layout';
 
 interface Props {
   data: IService;
   index: Tiles;
-  expanded: Tiles | null;
-  screenSize: {
-    width: number | null;
-    height: number | null;
-  };
-  isVisibile: (tile: Tiles) => boolean;
-  setExpanded: (tile: Tiles | null) => void;
 }
 
 /**
@@ -27,26 +20,29 @@ interface Props {
  * 
  */
 export default function ServiceTile(props: Props) {
-  const { data,  index, setExpanded, isVisibile, expanded } = props
-
-  const isExpanded = index === expanded
-  const isShrunk = !isExpanded && isVisibile(index) && expanded !== null
-  const isDefault = !isExpanded && isVisibile(index) && expanded === null
-  const isNotVisible = !isVisibile
+  const { data, index } = props
+  const { setPage } = useContext(LayoutContext) as TLayoutContext
 
   return (
-    <div className={ !isVisibile(index) ? 'hidden' : isExpanded ? 'grid grid-cols-[1.5fr_2fr] w-full' : ''}>
-      <div className='h-[750px] w-full hover:cursor-pointer group overflow-hidden relative flex justify-center items-center flex-col' onClick={(e) => isShrunk ? setExpanded(index) : null}>
-        <img src={data.imageSrc} alt={data.imageAlt} className={`w-full h-full object-cover ${isExpanded ? "opacity-50" : "opacity-80 group-hover:opacity-50"} absolute`}/>
-        <h2 className={`z-10 absolute ${isShrunk ? "text-center top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]" : "bottom-0"} left-0 pl-4 pb-1 ${isShrunk ? "-rotate-90" : ""}`}>{data.title}</h2>
-        {<p className={`z-10 w-[50%] mb-5 ${isExpanded ? "opacity-100" : isShrunk ? "hidden" : "opacity-0 group-hover:opacity-100"}`}>{data.details}</p>}
-        <button
-          className={`red-btn z-10 ${isExpanded ? "opacity-100" : "opacity-0 group-hover:opacity-100"} ${isShrunk ? "hidden" : ""}`}
-          onClick={(e) => isExpanded ? setExpanded(null) : setExpanded(index)}
-        >{isExpanded ? "Minimize Option" : "View Options"}</button>
+    <div className={`rounded-md w-full grid grid-rows-[65%_35%]`}>
+      <div className='h-full' onClick={(e) => setPage(index)}>
+        <img src={data.imageSrc} alt={data.imageAlt} className={`w-full h-full object-cover`}/>
       </div>
-      
-      {isExpanded && <ServiceOptionList data={data.options} />}
+
+      <div>
+        <div className='text-center mt-5 mb-3'>
+          <h3 className={`font-medium`}>{data.title}</h3>
+          <h4>{data.subTitle}</h4>
+        </div>
+
+        <div className='w-full text-center'>
+          <button className='red-btn' onClick={(e) => {
+            
+            setPage(index)
+          }}><a href="#services/1">View Services</a></button>
+        </div>
+      </div>
+
     </div>
   )
 }

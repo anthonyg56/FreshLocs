@@ -3,14 +3,15 @@ export interface IService {
   imageAlt: string;
   title: string;
   details: string;
+  subTitle: string;
   options: IServiceOption[];
 }
 
 export interface IServiceOption {
   title: string;
-  costFiat: number | null;
-  costPoints: number | null;
-  pointsEarned: number | null;
+  costFiat: number | undefined;
+  costPoints: number | undefined;
+  pointsEarned: number | undefined;
   link: string;
   disclaimer: string;
 }
@@ -20,12 +21,13 @@ const services: IService[] = [
     imageSrc: "/starter.jpg",
     imageAlt: "Starter Locs & Consultations",
     title: "Starter Locs & Consultations",
-    details: "The purpose of lorem ipsum is to create a natural looking block of text (sentence, paragraph, page, etc.) that doesn't distract from the layout. A practice not without controversy, laying out pages with meaningless filler text can be very useful when the focus is meant to be on design, not content. The passage experienced a surge in popularity during the 1960s when Letraset used it on their dry-transfer sheets, and again during the 90s as desktop publishers bundled the text with their software. Today it's seen all around the web; on templates, websites, and stock designs. Use our generator to get your own, or read on for the authoritative history of lorem ipsum.",
+    subTitle: "Begin Your Loc Journey Here",
+    details: "The purpose of lorem ipsum is to create a natural looking block of text (sentence, paragraph, page, etc.) that doesn't distract from the layout. A practice not without controversy, laying out pages with meaningless filler text can be very useful when the focus is meant to be on design, not content.",
     options: [
       {
         title: "Loc Service Consultation",
         costFiat: 25,
-        costPoints: null,
+        costPoints: undefined,
         pointsEarned: 5,
         link: "https://www.vagaro.com/freshlocslocshopllc/book-now",
         disclaimer: "Consultation needed for any client that has never been serviced. Online Consultation is a fee of $25. Free walk-in Consultations are from 10am-3pm Tues-Sat."
@@ -33,7 +35,7 @@ const services: IService[] = [
       {
         title: "Double Strand Starter Locs Consultation",
         costFiat: 25,
-        costPoints: null,
+        costPoints: undefined,
         pointsEarned: 5,
         link: "https://www.vagaro.com/freshlocslocshopllc/book-now",
         disclaimer: "Double Strand Starter Locs Consultation Only"
@@ -41,16 +43,16 @@ const services: IService[] = [
       {
         title: "Straight Hair Starter Locs Consultation",
         costFiat: 25,
-        costPoints: null,
-        pointsEarned: null,
+        costPoints: undefined,
+        pointsEarned: undefined,
         link: "https://www.vagaro.com/freshlocslocshopllc/book-now",
         disclaimer: "FIRST TIME CLIENTS; PICS OR A CONSULTATION IS NEEDED IN ORDER TO RECEIVE ACCEPTANCE FOR AN APPT - Free 10am-3pm after 3pm is a $50+ fee and must be paid in advance. /n Consultation is needed. This service is hourly and Crochet Method is used for this service. Half head can take 3-6 hours. Full head depending on length can take 6-12+ hours. Hrly Rate starts at $150.00+. Deposit is $150-300"
       },
       {
         title: "Loc Extensions or Instant Locs Consultation",
         costFiat: 25,
-        costPoints: null,
-        pointsEarned: null,
+        costPoints: undefined,
+        pointsEarned: undefined,
         link: "https://www.vagaro.com/freshlocslocshopllc/book-now",
         disclaimer: "Consultation Only w/out service"
       },
@@ -60,7 +62,8 @@ const services: IService[] = [
     imageSrc: "/retwist.jpg",
     imageAlt: "loctician Retwisting Locs",
     title: "Retwists",
-    details: "The purpose of lorem ipsum is to create a natural looking block of text (sentence, paragraph, page, etc.) that doesn't distract from the layout. A practice not without controversy, laying out pages with meaningless filler text can be very useful when the focus is meant to be on design, not content. The passage experienced a surge in popularity during the 1960s when Letraset used it on their dry-transfer sheets, and again during the 90s as desktop publishers bundled the text with their software. Today it's seen all around the web; on templates, websites, and stock designs. Use our generator to get your own, or read on for the authoritative history of lorem ipsum.",
+    subTitle: "Tighten Up Your Roots",
+    details: "The purpose of lorem ipsum is to create a natural looking block of text (sentence, paragraph, page, etc.) that doesn't distract from the layout. A practice not without controversy, laying out pages with meaningless filler text can be very useful when the focus is meant to be on design, not content.",
     options: [
       {
         title: "Re-Twist",
@@ -90,7 +93,7 @@ const services: IService[] = [
         title: "Children Retwist & Basic Style",
         costFiat: 95,
         costPoints: 5000,
-        pointsEarned: null,
+        pointsEarned: undefined,
         link: "https://www.vagaro.com/freshlocslocshopllc/book-now",
         disclaimer: "Shampoo, Retwist & Basic Style included. These styles are not included; Ropebraids, 2 Strands, Curls, Beads. Those are Creative Styles and will cost more."
       },
@@ -105,7 +108,7 @@ const services: IService[] = [
       {
         title: "Children Retwist & Creative Style",
         costFiat: 110,
-        costPoints: null,
+        costPoints: undefined,
         pointsEarned: 10,
         link: "https://www.vagaro.com/freshlocslocshopllc/book-now",
         disclaimer: "Shampoo, Retwist & Creative Style that last longer included. These styles are not included; Ropebraids, 2 Strands, Curls, Beads. Those are Creative Styles and will cost more."
@@ -113,7 +116,7 @@ const services: IService[] = [
       {
         title: "Children Retwist & Creative Style",
         costFiat: 110,
-        costPoints: null,
+        costPoints: undefined,
         pointsEarned: 10,
         link: "https://www.vagaro.com/freshlocslocshopllc/book-now",
         disclaimer: "Shampoo, Retwist & Creative Style that last longer included. These styles are not included; Ropebraids, 2 Strands, Curls, Beads. Those are Creative Styles and will cost more."
@@ -156,12 +159,13 @@ const services: IService[] = [
     imageSrc: "/maintenace.jpg",
     imageAlt: "loctician treating hair",
     title: "Maintenace & Treatment",
-    details: "The purpose of lorem ipsum is to create a natural looking block of text (sentence, paragraph, page, etc.) that doesn't distract from the layout. A practice not without controversy, laying out pages with meaningless filler text can be very useful when the focus is meant to be on design, not content. The passage experienced a surge in popularity during the 1960s when Letraset used it on their dry-transfer sheets, and again during the 90s as desktop publishers bundled the text with their software. Today it's seen all around the web; on templates, websites, and stock designs. Use our generator to get your own, or read on for the authoritative history of lorem ipsum.",
+    subTitle: "Freshen Up Your Locs",
+    details: "The purpose of lorem ipsum is to create a natural looking block of text (sentence, paragraph, page, etc.) that doesn't distract from the layout. A practice not without controversy, laying out pages with meaningless filler text can be very useful when the focus is meant to be on design, not content.",
     options: [
       {
         title: "Hot Oil Treatment",
         costFiat: 25,
-        costPoints: null,
+        costPoints: undefined,
         pointsEarned: 10,
         link: "https://www.vagaro.com/freshlocslocshopllc/book-now",
         disclaimer: ""
@@ -177,7 +181,7 @@ const services: IService[] = [
       {
         title: "Shampoo Only",
         costFiat: 25,
-        costPoints: null,
+        costPoints: undefined,
         pointsEarned: 10,
         link: "https://www.vagaro.com/freshlocslocshopllc/book-now",
         disclaimer: "Shampoo Only Service. Price varies based on condition, length of hair and texture. Dryer time of 30-45 mins Required"
@@ -185,7 +189,7 @@ const services: IService[] = [
       {
         title: "Deep Cleanse Shampoo & Deep Conditioning",
         costFiat: 50,
-        costPoints: null,
+        costPoints: undefined,
         pointsEarned: 5,
         link: "https://www.vagaro.com/freshlocslocshopllc/book-now",
         disclaimer: ""
@@ -196,20 +200,21 @@ const services: IService[] = [
     imageSrc: "/more.jpg",
     imageAlt: "Team",
     title: "More",
-    details: "The purpose of lorem ipsum is to create a natural looking block of text (sentence, paragraph, page, etc.) that doesn't distract from the layout. A practice not without controversy, laying out pages with meaningless filler text can be very useful when the focus is meant to be on design, not content. The passage experienced a surge in popularity during the 1960s when Letraset used it on their dry-transfer sheets, and again during the 90s as desktop publishers bundled the text with their software. Today it's seen all around the web; on templates, websites, and stock designs. Use our generator to get your own, or read on for the authoritative history of lorem ipsum.",
+    subTitle: "Explore Your Options",
+    details: "The purpose of lorem ipsum is to create a natural looking block of text (sentence, paragraph, page, etc.) that doesn't distract from the layout. A practice not without controversy, laying out pages with meaningless filler text can be very useful when the focus is meant to be on design, not content.",
     options: [
       {
         title: "Color Consultation/No Service",
         costFiat: 25,
-        costPoints: null,
-        pointsEarned: null,
+        costPoints: undefined,
+        pointsEarned: undefined,
         link: "https://www.vagaro.com/freshlocslocshopllc/book-now",
         disclaimer: "A consultation is needed to discuss pricing, hair texture, type of coloring and if your hair is healthy enough for locs. This is needed before booking an appointment."
       },
       {
         title: "Loc Trim/Cut Service",
         costFiat: 15,
-        costPoints: null,
+        costPoints: undefined,
         pointsEarned: 15,
         link: "https://www.vagaro.com/freshlocslocshopllc/book-now",
         disclaimer: "Trim is $15+, Cut is $25+"
@@ -217,7 +222,7 @@ const services: IService[] = [
       {
         title: "Sisterlocks Style Only",
         costFiat: 35,
-        costPoints: null,
+        costPoints: undefined,
         pointsEarned: 10,
         link: "https://www.vagaro.com/freshlocslocshopllc/book-now",
         disclaimer: "Only Sisterlocks Styles are allowed to be serviced for a Style Only without Maintenance. Styles start at $45 & up. ***Holiday Service is an additional $20+"
