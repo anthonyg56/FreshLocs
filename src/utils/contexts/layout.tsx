@@ -1,12 +1,17 @@
 "use client"
 
-import React, { createContext, useContext, useEffect, useRef, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import Footer, { FooterComponent } from "@/components/layout/footer";
 import Nav, { Sections } from "@/components/layout/nav";
-import { Tiles } from "@/components/services/Carousel";
 import DragHandle from "@/components/layout/DragHandle";
-import NavDots from "@/components/layout/NavDots";
 import { useRouter } from "next/navigation";
+
+export enum Tiles {
+  StarterLocs,
+  Retwists,
+  Maintenace,
+  More,
+}
 
 export type TLayoutContext = {
   footer: FooterComponent | undefined;

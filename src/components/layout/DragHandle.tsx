@@ -1,10 +1,7 @@
+"use client"
 import React from 'react'
 import { Sections } from './nav';
-import { Tiles } from '../services/Carousel';
 import MobileNav from './MobileNav';
-import { AboutContent } from '../about/Section';
-import ServiceOptionList from '../services/ServiceOptionList';
-import services from '@/utils/data/services';
 import useScreenSize from '@/utils/hooks/useScreenSize';
 
 interface Props {
@@ -21,11 +18,11 @@ export default function DragHandle(props: Props) {
   } = props
   const screenSize = useScreenSize()
   const calcHeight = () => {
-    if (screenSize.width && screenSize.width >= 1024) {
+    if (screenSize && screenSize.width >= 1024) {
       return 'h-screen'
     }
 
-    return 'h-[' + screenSize.height + 'px]'
+    return 'h-[' + screenSize?.height + 'px]'
   }
   return (
     <div className={`h-screen ${isOpen ? "fixed" : "hidden"} top-0 lg:hidden w-full z-[1001] bg-[rgba(0,0,0,0.7)]`} onClick={() => close()} >

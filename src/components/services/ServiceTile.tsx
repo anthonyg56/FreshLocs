@@ -1,8 +1,7 @@
 "use client"
 import { IService } from '@/utils/data/services'
 import React, { useContext } from 'react'
-import { Tiles } from './Carousel';
-import { LayoutContext, TLayoutContext } from '@/utils/contexts/layout';
+import { LayoutContext, TLayoutContext, Tiles } from '@/utils/contexts/layout';
 
 interface Props {
   data: IService;
