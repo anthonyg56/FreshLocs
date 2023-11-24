@@ -12,7 +12,7 @@ export default function TeamMemberTile(props: Props) {
 
   return (
       <div className='grid grid-rows-[55%_45%]'>
-        <div className='h-full'>
+        <div className='h-full rounded-[5px]'>
           <img src={picture} alt={`Picture of ${name}`} className='object-cover w-full h-full object-top' />
         </div>
 

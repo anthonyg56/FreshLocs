@@ -16,12 +16,13 @@ import { useRouter } from 'next/navigation';
 import useHash from '@/utils/hooks/usehas';
 
 export default function Home(props: any) {
-  const { setFooter, setNav, disableScrolling, servicePage } = useContext(LayoutContext) as TLayoutContext
+  const { setFooter, setNav, disableScrolling, servicePage, modalOpen } = useContext(LayoutContext) as TLayoutContext
 
   const hash = useHash()
 
   return (
     <ReactFullpage
+      navigation
       continuousVertical={false}
       loopHorizontal={false}
       controlArrows={false}
@@ -97,6 +98,13 @@ export default function Home(props: any) {
           fullpageApi.setKeyboardScrolling(true, "right")
         }
 
+        if (modalOpen && state.initialized) {
+          fullpageApi.setAllowScrolling(false, "all")
+          fullpageApi.setKeyboardScrolling(false, "all")
+        } else if (!modalOpen && state.initialized) {
+          fullpageApi.setAllowScrolling(true, "all")
+          fullpageApi.setKeyboardScrolling(true, "all")
+        }
         return (
           <ReactFullpage.Wrapper>
             <div className='section'>

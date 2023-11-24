@@ -5,6 +5,7 @@ import Footer, { FooterComponent } from "@/components/layout/footer";
 import Nav, { Sections } from "@/components/layout/nav";
 import DragHandle from "@/components/layout/DragHandle";
 import { useRouter } from "next/navigation";
+import Modal from "@/components/layout/Modal";
 
 export enum Tiles {
   StarterLocs,
@@ -23,6 +24,7 @@ export type TLayoutContext = {
   setScrolling: (value: boolean) => void;
   servicePage: Tiles | undefined;
   setPage: React.Dispatch<React.SetStateAction<Tiles | undefined>>;
+  modalOpen: boolean;
 }
 
 export const LayoutContext = createContext<Partial<TLayoutContext>>({})
@@ -33,6 +35,7 @@ export const LayoutProvider = ({ children }: {children: React.ReactNode}) => {
   const [disableScrolling, setScrolling] = useState(false)
   const [handleOpen, setHandle] = useState(false)
   const [servicePage, setPage] = useState<Tiles | undefined>(undefined)
+  const [modalOpen, setOpen] = useState(false)
 
   const router = useRouter()
 
@@ -62,12 +65,14 @@ export const LayoutProvider = ({ children }: {children: React.ReactNode}) => {
         setScrolling,
         servicePage,
         setPage,
+        modalOpen
       }}
     >
+      <Modal isOpen={modalOpen} setOpen={setOpen} />
       <Nav active={activeNav} trigger={() => triggerHandle(true)}/>
         {children}
         {/* <NavDots active={activeNav} /> */}
-      <Footer component={footer}/>
+      <Footer component={footer} openModal={setOpen}/>
       <DragHandle
         section={activeNav}
         close={() => triggerHandle()}

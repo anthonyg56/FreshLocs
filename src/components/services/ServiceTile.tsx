@@ -23,25 +23,24 @@ export default function ServiceTile(props: Props) {
   const { setPage } = useContext(LayoutContext) as TLayoutContext
 
   return (
-    <div className={`rounded-md w-full grid grid-rows-[65%_35%] [&:nth-child(2)]:pb-24 md:[&:nth-child(2)]:pb-0`}>
-      <div className='h-full' onClick={(e) => setPage(index)}>
-        <img src={data.imageSrc} alt={data.imageAlt} className={`w-full h-full object-cover`}/>
-      </div>
-
-      <div>
-        <div className='text-center mt-5 mb-3'>
-          <h3 className={`font-medium`}>{data.title}</h3>
-          <h4>{data.subTitle}</h4>
+    <a href='#services/1' className={`w-full grid grid-rows-[65%_35%] [&:nth-child(2)]:pb-24 md:[&:nth-child(2)]:pb-0 group`}>
+        <div className='h-full rounded-[5px] overflow-hidden lg:group-hover:cursor-pointer lg:group-hover:scale-105' onClick={(e) => setPage(index)}>
+          <img src={data.imageSrc} alt={data.imageAlt} className={`w-full h-full object-cover`} />
         </div>
 
-        <div className='w-full text-center'>
+        <div className='h-[fit-content] lg:group-hover:cursor-pointer lg:group-hover:scale-105' onClick={(e) => setPage(index)}>
+          <div className='text-center mt-5 mb-3'>
+            <h3 className={`font-medium`}>{data.title}</h3>
+            <h4>{data.subTitle}</h4>
+          </div>
+
+          {/* <div className='w-full text-center'>
           <button className='red-btn' onClick={(e) => {
             
             setPage(index)
           }}><a href="#services/1">View Services</a></button>
+        </div> */}
         </div>
-      </div>
-
-    </div>
+    </a>
   )
 }

@@ -15,16 +15,15 @@ export enum FooterComponent {
 
 interface Props {
   component: FooterComponent | undefined;
-  
+  openModal: (value: boolean) => void;
 }
 
 export default function Footer(props: Props) {
-  const { component } = props
-  const { handleModal, modal } = useContext(ModalContext) as TModalContext
+  const { component, openModal } = props
   
   const ReadBeforeBooking = (
-    <button onClick={(e) => handleModal(modal ? undefined : <Disclaimer />, modal!!)}>
-      <h4 className='tracking-[0.095em] text-white'>{modal ? "Close" : "Read Before Booking"}</h4>
+    <button onClick={(e) => openModal(true)}>
+      <h4 className='tracking-[0.095em] text-white'>Read Before Booking</h4>
     </button>
   )
 

@@ -16,7 +16,7 @@
   }
 
   h4 {
-    @apply lg:text-[16px] font-medium text-fresh-grey tracking-[0.095em];
+    @apply text-[16px] font-medium text-fresh-grey tracking-[0.095em];
   }
 
   p {
@@ -30,6 +30,10 @@
   label {
     @apply text-[20px] font-semibold tracking-[0.095em] pb-1;
   }
+
+  ul li a span {
+    @apply text-fresh-red;
+}
 }
 
 @layer components {
@@ -42,7 +46,7 @@
   }
 
   .sect {
-    @apply pt-[70px] px-7 flex flex-col md:pt-[80px] md:pb-[60px] lg:pt-[0px] lg:px-7 lg:h-screen lg:justify-center xl:px-14 xl:pt-7;
+    @apply pt-[70px] px-7 flex flex-col md:pt-[80px] md:pb-[60px] lg:pt-[0px] lg:px-7 lg:h-screen lg:min-h-[912px] lg:overflow-y-scroll lg:justify-center xl:px-14 xl:pt-7;
   }
 }
 
@@ -62,10 +66,5 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: rgb(var(--background-end-rgb));
 }
