@@ -4,7 +4,7 @@ import React from 'react'
 
 export default function ContactInfo() {
   return (
-    <div className='w-full flex justify-center mt-[35px]'>
+    <div className='w-full flex justify-center mt-[35px] pb-10'>
       <div className='flex flex-col lg:flex-row gap-[25px] xl:gap-[50px] mx-auto'>
         <div className='flex flex-col justify-center items-center md:flex-row md:items-start lg:flex-row lg:justify-start'>
           <div className='bg-fresh-black h-[50px] w-[50px] rounded-[50%] flex'>

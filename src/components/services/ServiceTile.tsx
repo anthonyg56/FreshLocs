@@ -23,7 +23,7 @@ export default function ServiceTile(props: Props) {
   const { setPage } = useContext(LayoutContext) as TLayoutContext
 
   return (
-    <div className={`rounded-md w-full grid grid-rows-[65%_35%]`}>
+    <div className={`rounded-md w-full grid grid-rows-[65%_35%] [&:nth-child(2)]:pb-24 md:[&:nth-child(2)]:pb-0`}>
       <div className='h-full' onClick={(e) => setPage(index)}>
         <img src={data.imageSrc} alt={data.imageAlt} className={`w-full h-full object-cover`}/>
       </div>

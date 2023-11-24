@@ -69,10 +69,6 @@ export default function Footer(props: Props) {
         <p className=''>Copyright &copy; 2023 Freshlocs <span className='text-fresh-red'>|</span> ALL RIGHTS RESERVED.</p>
       </div>
 
-      <div className=' md:hidden'>
-        <FontAwesomeIcon icon={faArrowPointer} />
-      </div>
-
       <div className='ml-auto my-auto'>
         { component === undefined ? undefined : footers[component]}
       </div>
