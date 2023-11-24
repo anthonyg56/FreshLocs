@@ -26,7 +26,7 @@ export default function Home(props: any) {
       continuousVertical={false}
       loopHorizontal={false}
       controlArrows={false}
-      normalScrollElements={'#serivce-page'}
+      normalScrollElements={'#serivce-page, #modal'}
       afterSlideLoad={(section, origin, destination, direction, trigger) => {
         const switchAbout = (index: number) => {
           switch(index) {

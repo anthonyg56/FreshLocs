@@ -17,8 +17,8 @@ interface Props {
 export default function Modal(props: Props) {
   return (
     <div>
-      <Dialog open={props.isOpen} handler={props.setOpen} className='mx-auto bg-fresh-black max-h-[90%] md:max-h-[80%] md:max-w-[75%] h-full my-auto overflow-y-auto'>
-        <div className='flex flex-col justify-center h-auto py-14'>
+      <Dialog open={props.isOpen} handler={props.setOpen} id="Modal" className='mx-auto bg-fresh-black max-h-[90%] md:max-h-[80%] md:max-w-[75%] h-full my-auto overflow-y-auto'>
+        <div className='flex flex-col justify-center     Qh-auto py-14'>
           <FontAwesomeIcon icon={faTriangleExclamation} className='text-fresh-red h-[60px] w-[60px] mx-auto' />
           <DialogHeader className='text-[35px] md:text-[45px] lg:text-[70px] font-bold tracking-[0.095em] mx-auto'>DISCLAIMER</DialogHeader>
           <DialogBody className='text-[16px] font-medium px-7 md:w-[75%] lg:w-[45%] mx-auto'>
