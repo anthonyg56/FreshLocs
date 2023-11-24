@@ -71,7 +71,7 @@ export default function Home(props: any) {
             break;
           }
       }}
-      credits={{}}
+      credits={{enabled: false, label: ""}}
       anchors={['home', 'about', 'services', 'contact']}
       menu='#menu'
       render={({ state, fullpageApi }) => {
