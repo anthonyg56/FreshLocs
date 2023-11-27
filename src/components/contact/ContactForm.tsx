@@ -61,7 +61,7 @@ export default function ContactForm() {
   }
   
   return (
-    <div className='bg-fresh-black px-7 py-7 rounded-[5px] md:px-14 md:w-[75%] md:mx-auto lg:w-auto lg:mx-0 lg:col-span-6 lg:col-start-1 xl:col-span-4 xl:col-start-2 xl:flex xl:items-center'>
+    <div className='bg-fresh-black px-7 py-7 rounded-[5px] min-h-[350px] md:px-14 md:w-[75%] md:mx-auto lg:lg:min-h-[600px] lg:w-auto lg:mx-0 lg:col-span-6 lg:col-start-1 xl:col-span-4 xl:col-start-2 xl:flex xl:items-center'>
       {submitted ? <SubmittedView /> : <form className="xl:w-full" onSubmit={(e) => {
         e.preventDefault();
 
